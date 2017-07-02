@@ -2,7 +2,7 @@
 
 const _ = require('lodash');
 let appRoute = './env/';
-let env;
+let env = '';
 
 switch (process.env.NODE_ENV) {
 	case 'production': {
