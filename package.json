@@ -1,0 +1,39 @@
+{
+  "name": "route",
+  "version": "0.1.0",
+  "description": "get the shortest route",
+  "main": "api.js",
+  "scripts": {
+    "start": "node api.js",
+    "test": "./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heinrich10/amk.git"
+  },
+  "keywords": [
+    "express",
+    "amk"
+  ],
+  "author": "heinrich10",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/heinrich10/amk/issues"
+  },
+  "homepage": "https://github.com/heinrich10/amk#readme",
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "ioredis": "^3.1.1",
+    "lodash": "^4.17.4",
+    "moment": "^2.18.1",
+    "request": "^2.81.0"
+  },
+  "devDependencies": {
+    "chai": "^4.0.2",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.4.2",
+    "sinon": "^2.3.6"
+  }
+}
