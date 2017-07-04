@@ -1,12 +1,11 @@
 
 class HelloService {
 
-	log(key, value) {
-		console.log(key, value);
-	}
-
-	addJob(queue, data) {
-		return queue.add(data);
+	addJob(queue, id, path) {
+		return queue.add({
+			id: id,
+			path: path
+		});
 	}
 
 }

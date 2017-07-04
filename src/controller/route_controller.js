@@ -13,19 +13,25 @@ class RouteController {
 
 	async get(req, res) {
 		let params = req.params
-		let value = await hello.find(params.id);
+		let value = await route.findById(params.id);
 		if (value) {
-			res.json({
-				msg: value
-			});
+			delete value._id;
+			res.json(value);
 		} else {
 			throw new AmkError('not found', 404);
 		}
 	}
 
 	async create(req, res) {
-		await routeService.addJob(req.app.locals.routeQ, req.body);
-		res.json('ok');
+		let data = {
+			status: "in progress"
+		}
+		let inserted = await route.insertOne(data);
+		let id = inserted.insertedId.toString();
+		await routeService.addJob(req.app.locals.routeQ, id, req.body);
+		res.json({
+			token: id
+		});
 	}
 
 

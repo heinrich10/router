@@ -1,4 +1,4 @@
-const mongo = require('../lib/mongo')
+const mongo = require('../../lib/mongo')
 const ObjectID = require('mongodb').ObjectID;
 const LIMIT = 20;
 
@@ -51,6 +51,12 @@ class Mongo {
             return db.insertMany(docs, options);
         })
     }
+
+	updateById(id, update, options) {
+		return this.load().then((db) => {
+            return db.updateOne({_id: ObjectID(id)}, update, options);
+        })
+	}
 
     updateOne(filter, update, options) {
         return this.load().then((db) => {
