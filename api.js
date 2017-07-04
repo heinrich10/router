@@ -46,6 +46,9 @@ const errorHandler = require('./src/middleware/error_handler');
 const helloRoute = require('./src/route/hello_route');
 const routeRoute = require('./src/route/route_route');
 
+// collectors
+const RouteCollector = require('./src/collector/route_collector');
+
 //instantiate models
 const hello = new Hello();
 const route = new Route();
@@ -62,6 +65,9 @@ const routeValidator = new RouteValidator();
 const helloController = new HelloController(helloService,  hello);
 const routeController = new RouteController(routeService, route);
 
+// instantiate collectors
+const routeCollector = new RouteCollector(route);
+
 app.use('/hellos', helloRoute(jsonParser, helloValidator, helloController));
 app.use('/route', routeRoute(jsonParser, routeValidator, routeController));
 
@@ -72,6 +78,9 @@ app.listen(3000, function(){
 });
 
 apiQ.process(function (job, done) {
-	console.log(job.data);
-	done();
+	// console.log(job.data);
+	routeCollector.update(job.data).then(() => {
+		done();
+	});
+	// done();
 })
