@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node api.js",
     "test": "./node_modules/.bin/nyc ./node_modules/.bin/_mocha",
-	"coverage": "./node_modules/.bin/nyc report --reporter=text-lcov > coverage.lcov && codecov"
+    "coverage": "./node_modules/.bin/nyc report --reporter=text-lcov > coverage.lcov && codecov"
   },
   "repository": {
     "type": "git",
@@ -15,7 +15,7 @@
   "keywords": [
     "express",
     "amk",
-	"route"
+    "route"
   ],
   "author": "heinrich10",
   "license": "MIT",

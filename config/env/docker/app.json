@@ -1,0 +1,11 @@
+{
+	"sql":{},
+	"mongo": {
+		"hosts": ["mongo:27017"],
+		"database": "router"
+	},
+	"redis": {
+		"port": 6379,
+		"host": "redis"
+	}
+}
