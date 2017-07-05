@@ -5,24 +5,25 @@
   "main": "api.js",
   "scripts": {
     "start": "node api.js",
-    "test": "./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha"
+    "test": "./node_modules/.bin/nyc ./node_modules/.bin/_mocha",
+	"coverage": "./node_modules/.bin/nyc report --reporter=text-lcov > coverage.lcov && codecov"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/heinrich10/amk.git"
+    "url": "git+git@github.com:heinrich10/router.git"
   },
   "keywords": [
     "express",
-    "amk"
+    "amk",
+	"route"
   ],
   "author": "heinrich10",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/heinrich10/amk/issues"
+    "url": "https://github.com/heinrich10/router/issues"
   },
-  "homepage": "https://github.com/heinrich10/amk#readme",
+  "homepage": "https://github.com/heinrich10/router",
   "dependencies": {
-    "bluebird": "^3.5.0",
     "body-parser": "^1.17.2",
     "bull": "^3.0.0-rc.3",
     "express": "^4.15.3",
@@ -34,8 +35,8 @@
   },
   "devDependencies": {
     "chai": "^4.0.2",
-    "istanbul": "^0.4.5",
     "mocha": "^3.4.2",
+    "nyc": "^11.0.3",
     "sinon": "^2.3.6"
   }
 }
