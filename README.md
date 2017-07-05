@@ -4,7 +4,9 @@
 
 http request --> router --> queue --> route_worker --> queue --> router
 
-basically when the user sends an api request, the router will process it and then sends a message to route_worker through our redis queue. After the route_worker processes the data, it will not send the data through the redis queue back to router for saving to the database (mongodb)
+basically when the user sends an api request, the router will process it and then sends a message to route_worker through our redis queue. After the route_worker processes the data, it will send the data through the redis queue back to router for saving to the database (mongodb)
+
+route_worker handles the api request. the decision to separate this from the API is because I am expecting the google maps api to be slow when have a lot of waypoints
 
 ## Elements
 - routes
