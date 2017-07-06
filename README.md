@@ -1,4 +1,5 @@
 # Router
+[![CircleCI](https://circleci.com/gh/heinrich10/router.svg?style=svg)](https://circleci.com/gh/heinrich10/router) [![codecov](https://codecov.io/gh/heinrich10/router/branch/master/graph/badge.svg)](https://codecov.io/gh/heinrich10/router)
 
 ## Overview
 
