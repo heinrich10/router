@@ -1,6 +1,5 @@
 
 const AmkError = require('../lib/amk_error');
-const random = require('../lib/random');
 
 let routeService;
 let route;

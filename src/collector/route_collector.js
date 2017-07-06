@@ -1,7 +1,4 @@
 
-const AmkError = require('../lib/amk_error');
-const random = require('../lib/random');
-
 let route;
 
 class RouteCollector {
