@@ -6,25 +6,17 @@ http request --> router --> queue --> route_worker --> queue --> router
 
 basically when the user sends an api request, the router will process it and then sends a message to route_worker through our redis queue. After the route_worker processes the data, it will send the data through the redis queue back to router for saving to the database (mongodb)
 
-route_worker handles the api request. the decision to separate this from the API is because I am expecting the google maps api to be slow when have a lot of waypoints
+route_worker handles the api request. the decision to separate this from the API is because I am expecting the google maps api to be slow when we have a lot of waypoints
 
 ## Elements
-- routes
-this is a simple express router, all request will pass through this and get routed to middleware
-- middleware
-this is a processing stage, includes jsonParser, errorhandler, validators
-- validator
-validators are functions to do validation on the json request
-- controller
-controllers processes the request and gives back a reply
-- model
-models are objects use to save data to db
-- lib
-shared utility functions like wrapper
-- service
-are other processes that is shared across controller functions
-- collectors
-these are objects that processes the reply from the worker
+- routes - this is a simple express router, all request will pass through this and get routed to middleware
+- middleware - this is a processing stage, includes jsonParser, errorhandler, validators
+- validator - validators are functions to do validation on the json request
+- controller - controllers are in charge of the flow calling different components to process the request and gives back a reply
+- model - models are objects use to save data to db
+- lib - shared utility functions like wrapper
+- service - are other processes that is shared across controller functions
+- collectors - these are objects that processes the reply from the worker
 
 ## Assumptions
 
