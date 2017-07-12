@@ -1,0 +1,17 @@
+version: '2'
+services:
+  router:
+    build: ./
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongo
+      - redis
+  router_worker:
+    build: ./router-worker
+    depends_on:
+      - redis
+  redis:
+    image: redis
+  mongo:
+    image: mongo

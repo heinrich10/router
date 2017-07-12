@@ -40,4 +40,14 @@ route_worker handles the api request. the decision to separate this from the API
 4. make sure you have a docker network so that each service can discover each other
 5. execute ``` docker run -it -network=docker_nat -name=router router```
 
+## How to run using docker compose
+
+1. work directory is router
+2. git clone router-worker to the working directory
+3. run ``` docker-compose build ```, wait a while
+4. run ``` docker-compose up -d ```
+5. make a post request to http://ip-address:3000/route with route info
+
+* ip address could be localhost or 192.168.99.100 depends on your docker configuration
+
 oh, and this is powered by [amk.js](https://github.com/heinrich10/amk), another side project I have that will try to be an apiserver quickstart. This is still in alpha though, please star if you find useful, thanks in advance.
